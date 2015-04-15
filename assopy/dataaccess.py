@@ -22,7 +22,7 @@ def user_identities(u):
         
 def user_tickets(u):
     qs = Ticket.objects\
-        .filter(user=u)\
+        .filter(user__user=u)\
         .order_by('-fare__conference')\
         .select_related('fare')
 
